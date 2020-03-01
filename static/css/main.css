@@ -1,0 +1,76 @@
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+a {text-decoration: none !important; color: black;}
+
+.sidebar {
+    position: absolute;
+    display: grid;
+    top: 240px;
+    left: 0px;
+    border: 1px solid black;
+}
+
+
+header {
+    height: 100px;
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+
+.gender-menu, .icons-menu {
+    display: flex;
+    justify-content: space-around;
+}
+.gender-menu {
+    width: 16em;
+}
+.icons-menu {
+    min-width: 256px;
+}
+
+.icons img{
+    width: 22px;
+    height: auto;
+}
+
+.men-dropdown, .woman-dropdown {
+    position: absolute;
+    display: -webkit-inline-box;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    z-index: 1;
+    min-width: 490px;
+}
+
+
+content {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 70px;
+    grid-row-gap: 40px;
+}
+
+.card {
+    height: 24rem;
+    width: auto;
+}
+
+.card img {
+    width: 22rem;
+}
+

@@ -1,0 +1,170 @@
+﻿{% load static %}
+<html>
+<head>
+    <title>{% block title %}  {% endblock %}</title>
+    <!--css, fonts-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" media="screen, projection" />
+
+    <!--custom, jquery scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</head>
+<body>
+
+    {% block sidebar %}
+    <div class="sidebar">
+        <div class="ul-collection">
+            <h5>КОЛЛЕКЦИЯ</h5>
+            <ul class="ul-collection-drop">
+                {% for collection in collections %}
+                <li>{{collection.title}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="ul-favorite">
+            <h5>ИЗБРАННОЕ</h5>
+            <ul class="ul-favorite-drop">
+            </ul>
+        </div>
+
+        <div class="ul-type">
+            <h5>ТИП</h5>
+            <ul class="ul-type-drop">
+                {% for type in types %}
+                <li>{{type.title}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block header %}
+    <header>
+            <div class="gender-menu">
+                <div class="woman">
+                    <h3><a href="">ЖЕНЩИНЫ</a></h3>
+                    <div class="woman-dropdown">
+                        <ul>
+                            <h4>НОГИ </h4>
+                            <li><a href="trousers">БРЮКИ </a></li>
+                            <li><a href="pants">ШТАНЫ </a></li>
+                            <li><a href="shorts">ШОРТЫ </a></li>
+                            <li><a href="skirts">ПЛАТЬЕ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ПРЕСС </h4>
+                            <li><a href="jersey">ДЖЕРСИ </a></li>
+                            <li><a href="t-shirts">ФУТБОЛКИ </a></li>
+                            <li><a href="shirts">РУБАШКИ </a></li>
+                            <li><a href="singlets">МАЙКИ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ТЕЛО </h4>
+                            <li><a href="jackets">КУРТКИ </a></li>
+                            <li><a href="costumes">КОСТЮМЫ </a></li>
+                            <li><a href="raincoats">ПЛАЩИ </a></li>
+                            <li><a href="coat">ПАЛЬТО </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ГОЛОВА </h4>
+                            <li><a href="hats">ШАПКИ </a></li>
+                            <li><a href="caps">КЕПКИ </a></li>
+                            <li><a href="headbands">ПОВЯЗКИ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ОБУВЬ </h4>
+                            <li><a href="sneakers">КЕДЫ</a></li>
+                            <li><a href="cross">КРОССОВКИ </a></li>
+                            <li><a href="boots">БОТИНКИ </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="men">
+                    <h3><a href="">МУЖЧИНЫ</a></h3>
+                    <div class="men-dropdown">
+                        <ul>
+                            <h4>НОГИ </h4>
+                            <li><a href="shorts">ШОРТЫ </a></li>
+                            <li><a href="trousers">БРЮКИ </a></li>
+                            <li><a href="pants">ШТАНЫ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ПРЕСС </h4>
+                            <li><a href="shirts">РУБАШКИ </a></li>
+                            <li><a href="jersey">ДЖЕРСИ </a></li>
+                            <li><a href="singlets">МАЙКИ </a></li>
+                            <li><a href="t-shirts">ФУТБОЛКИ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ТЕЛО </h4>
+                            <li><a href="raincoats">ПЛАЩИ </a></li>
+                            <li><a href="jackets">КУРТКИ </a></li>
+                            <li><a href="coat">ПАЛЬТО </a></li>
+                            <li><a href="costumes">КОСТЮМЫ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ГОЛОВА </h4>
+                            <li><a href="caps">КЕПКИ </a></li>
+                            <li><a href="headbands">ПОВЯЗКИ </a></li>
+                            <li><a href="hats">ШАПКИ </a></li>
+                        </ul>
+                        <ul>
+                            <h4>ОБУВЬ </h4>
+                            <li><a href="cross">КРОССОВКИ </a></li>
+                            <li><a href="sneakers">КЕДЫ</a></li>
+                            <li><a href="boots">БОТИНКИ </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logo-menu">
+                <div class="logo">
+                    <h2><a href="">BARKER</a></h2>
+                </div>
+            </div>
+
+
+            <div class="icons icons-menu">
+                <div class="user">
+                    <div class="icons">
+                        <img src="{% static 'media/3155115-200.png' %}" />
+                    </div>
+                </div>
+                <div class="basket">
+                    <div class="icons">
+                        <img src="{% static 'media/821481-200.png' %}" />
+                    </div>
+                </div>
+                <div class="favourite">
+                    <div class="icons">
+                        <img src="{% static 'media/5rrLV7h_6bY.jpg' %}" />
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+    {% endblock %}
+
+    {% block content %}
+    <content>
+        <div class="products">
+            {% for product in products %}
+            <div class="card">
+                <img src="{{product.photo.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="#">{{product.title}}</a></h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </content>
+    {% endblock %}
+</body>
+</html>
