@@ -16,77 +16,38 @@
 <body>
 
     {% block sidebar %}
-    <div class="sidebar">
-        <div class="ul-collection">
-            <h5>КОЛЛЕКЦИЯ</h5>
-            <ul class="ul-collection-drop">
-                {% for collection in collections %}
-                <li>{{collection.title}}</li>
-                {% endfor %}
-            </ul>
+        <div class="sidebar">
+            <div class="ul-collection">
+                <h5>КОЛЛЕКЦИЯ</h5>
+                <ul class="ul-collection-drop">
+                    {% for collection in collections %}
+                    <li>{{collection.title}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="ul-favorite">
+                <h5>ИЗБРАННОЕ</h5>
+                <ul class="ul-favorite-drop">
+                </ul>
+            </div>
+            <div class="ul-type">
+                <h5>ТИП</h5>
+                <ul class="ul-type-drop">
+                    {% for type in types %}
+                    <li>{{type.title}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-
-        <div class="ul-favorite">
-            <h5>ИЗБРАННОЕ</h5>
-            <ul class="ul-favorite-drop">
-            </ul>
-        </div>
-
-        <div class="ul-type">
-            <h5>ТИП</h5>
-            <ul class="ul-type-drop">
-                {% for type in types %}
-                <li>{{type.title}}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
     {% endblock %}
 
-    {% block header %}
-    <header>
+{% block header %}
+        <div class="header">
             <div class="gender-menu">
-                <div class="woman">
-                    <h3><a href="">ЖЕНЩИНЫ</a></h3>
-                    <div class="woman-dropdown">
-                        <ul>
-                            <h4>НОГИ </h4>
-                            <li><a href="trousers">БРЮКИ </a></li>
-                            <li><a href="pants">ШТАНЫ </a></li>
-                            <li><a href="shorts">ШОРТЫ </a></li>
-                            <li><a href="skirts">ПЛАТЬЕ </a></li>
-                        </ul>
-                        <ul>
-                            <h4>ПРЕСС </h4>
-                            <li><a href="jersey">ДЖЕРСИ </a></li>
-                            <li><a href="t-shirts">ФУТБОЛКИ </a></li>
-                            <li><a href="shirts">РУБАШКИ </a></li>
-                            <li><a href="singlets">МАЙКИ </a></li>
-                        </ul>
-                        <ul>
-                            <h4>ТЕЛО </h4>
-                            <li><a href="jackets">КУРТКИ </a></li>
-                            <li><a href="costumes">КОСТЮМЫ </a></li>
-                            <li><a href="raincoats">ПЛАЩИ </a></li>
-                            <li><a href="coat">ПАЛЬТО </a></li>
-                        </ul>
-                        <ul>
-                            <h4>ГОЛОВА </h4>
-                            <li><a href="hats">ШАПКИ </a></li>
-                            <li><a href="caps">КЕПКИ </a></li>
-                            <li><a href="headbands">ПОВЯЗКИ </a></li>
-                        </ul>
-                        <ul>
-                            <h4>ОБУВЬ </h4>
-                            <li><a href="sneakers">КЕДЫ</a></li>
-                            <li><a href="cross">КРОССОВКИ </a></li>
-                            <li><a href="boots">БОТИНКИ </a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="men">
-                    <h3><a href="">МУЖЧИНЫ</a></h3>
-                    <div class="men-dropdown">
+                {% for gender in genders %}
+                <div class="{{gender.slug}}">
+                    <h3><a href="{{gender.get_gender_url}}">{{gender.title}}</a></h3>
+                    <div class="{{gender.slug}}-dropdown">
                         <ul>
                             <h4>НОГИ </h4>
                             <li><a href="shorts">ШОРТЫ </a></li>
@@ -121,14 +82,14 @@
                         </ul>
                     </div>
                 </div>
+                {% endfor %}
             </div>
 
             <div class="logo-menu">
                 <div class="logo">
-                    <h2><a href="">BARKER</a></h2>
+                    <h2><a href="/">BARKER</a></h2>
                 </div>
             </div>
-
 
             <div class="icons icons-menu">
                 <div class="user">
@@ -147,12 +108,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+{% endblock %}
 
-
-        </header>
-    {% endblock %}
-
-    {% block content %}
+{% block content %}
     <content>
         <div class="products">
             {% for product in products %}
@@ -165,6 +124,6 @@
             {% endfor %}
         </div>
     </content>
-    {% endblock %}
+{% endblock %}
 </body>
 </html>

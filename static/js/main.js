@@ -1,20 +1,19 @@
 $(document).ready(function () {
-    $('.woman-dropdown').hide();
     $('.men-dropdown').hide();
+    $('.woman-dropdown').hide();
     $('.ul-size li').hide();
 
     $('.woman').hover(function () {
-        $('.woman-dropdown').show(30);
+        $('.woman-dropdown').show();
     },
     function () {
-        $('.woman-dropdown').slideUp(50);
+        $('.woman-dropdown').hide();
         })
 
     $('.men').hover(function () {
-        $('.men-dropdown').show(30);
+        $('.men-dropdown').show();
     },
-        function () {
-            $('.men-dropdown').slideUp(50);
-        })
-
-})
+    function () {
+        $('.men-dropdown').hide();
+    })
+});

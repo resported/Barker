@@ -7,15 +7,14 @@ body {
 a {text-decoration: none !important; color: black;}
 
 .sidebar {
-    position: absolute;
+    position: fixed;
     display: grid;
-    top: 240px;
+    top: 220px;
     left: 0px;
     border: 1px solid black;
 }
 
-
-header {
+.header {
     height: 100px;
     display: flex !important;
     justify-content: space-evenly;
@@ -38,6 +37,10 @@ header {
 .icons img{
     width: 22px;
     height: auto;
+}
+
+.woman, .men {
+    width: 130px;
 }
 
 .men-dropdown, .woman-dropdown {

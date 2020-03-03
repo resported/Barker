@@ -1,15 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Barker",
     "\\products",
     "\\products\\templates",
     "\\products\\templates\\extenders",
     "\\products\\templates\\main",
     "\\static",
-    "\\static\\css",
-    "\\static\\js",
-    "\\static\\media",
-    "\\static\\media\\collections"
+    "\\static\\js"
   ],
   "SelectedNode": "\\Barker\\urls.py",
   "PreviewInSolutionExplorer": false
